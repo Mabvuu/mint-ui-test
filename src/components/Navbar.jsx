@@ -15,7 +15,7 @@ const Navbar = () => {
   const [account, setAccount] = useState(null)
   const [network, setNetwork] = useState(null)
 
-  // On load: get account & network, and subscribe to chain changes
+
   useEffect(() => {
     if (!window.ethereum) return
 
@@ -34,7 +34,7 @@ const Navbar = () => {
       setNetwork(NETWORK_NAMES[hex] || hex)
     }).catch(console.error)
 
-    // handler for network changes
+ 
     const handleChainChanged = (chainId) => {
       setNetwork(NETWORK_NAMES[chainId] || chainId)
     }
@@ -59,7 +59,7 @@ const Navbar = () => {
         setAccount(accounts[0])
       }
 
-      // update network name
+   
       const chainId = await window.ethereum.request({ method: 'eth_chainId' })
       setNetwork(NETWORK_NAMES[chainId] || chainId)
     } catch (err) {
@@ -72,7 +72,7 @@ const Navbar = () => {
     setNetwork(null)
   }
 
-  // safely abbreviate only if account is a string
+
   const abbr = typeof account === 'string'
     ? `${account.slice(0, 6)}…${account.slice(-4)}`
     : ''
@@ -97,7 +97,7 @@ const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {/* Nav links */}
+       
           <ul className="navbar-nav m-auto my-2 text-center">
             <li className="nav-item">
               <NavLink className="nav-link" to="/">Home</NavLink>
@@ -113,7 +113,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Wallet + network + other buttons */}
+    
           <div className="d-flex align-items-center flex-nowrap">
             {account ? (
               <button
