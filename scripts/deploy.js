@@ -8,9 +8,8 @@ async function main() {
 
   // 2. Compile & deploy
   const Factory = await ethers.getContractFactory("MyContract");
-  const contract = await Factory.deploy();     // start deployment
+  const contract = await Factory.deploy();
 
-  // 3. Wait for deployment (ethers v5 style)
   await contract.deployed();
 
   // 4. Log the address
