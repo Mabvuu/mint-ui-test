@@ -1,29 +1,28 @@
-// src/components/Main.jsx
-import React, { useState } from "react";
-import contractJson from "../abi/MyContract.json";  // Keep ABI import for future use
 
-// Extract ABI to reference contractJson and avoid unused-vars
+import React, { useState } from "react";
+import contractJson from "../abi/MyContract.json"; 
+
 const contractAbi = contractJson.abi;
 
-// Simplified Mocked Mint UI without blockchain calls
+
 export default function Main() {
   const [txStatus, setTxStatus] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleMint = () => {
     console.log("handleMint clicked");
-    console.log("Contract ABI length:", contractAbi.length); // Use ABI to prevent unused import
+    console.log("Contract ABI length:", contractAbi.length); 
 
-    // 1. Prompt user
+
     setTxStatus("confirm");
 
-    // Simulate user confirming in wallet
+   
     setTimeout(() => {
       setTxStatus("pending");
 
-      // Simulate network delay
+     
       setTimeout(() => {
-        // Randomly succeed or fail
+      
         if (Math.random() < 0.8) {
           setTxStatus("success");
         } else {
