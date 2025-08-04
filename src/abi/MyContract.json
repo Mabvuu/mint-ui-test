@@ -1,0 +1,13 @@
+
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+   
+  ]
+}
